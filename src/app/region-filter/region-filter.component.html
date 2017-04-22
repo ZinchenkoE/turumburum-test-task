@@ -5,12 +5,12 @@
             <div class="selectViewPart" (click)="toggleDropdownBox($event)">{{selectViewPartText}}</div>
             <ul class="dropdownBox">
                 <li (click)="selectAllRegions($event)"><span>Все области</span></li>
-                <li class="withSecondLevel" (click)="includeRegions($event)">
+                <li class="withSecondLevel" [class.active]="showIncludeList" (click)="includeRegions($event)">
                     <span>Только области</span>
                     <app-region-list *ngIf="showIncludeList" [type]="'includeList'"></app-region-list>
                 </li>
                 <li (click)="excludeAllRegions($event)"><span>Исключить все области</span></li>
-                <li class="withSecondLevel" (click)="excludeRegions($event)">
+                <li class="withSecondLevel" [class.active]="showExcludeList" (click)="excludeRegions($event)">
                     <span>Кроме областей</span>
                     <app-region-list *ngIf="showExcludeList" [type]="'excludeList'"></app-region-list>
                 </li>

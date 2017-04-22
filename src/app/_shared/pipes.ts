@@ -18,7 +18,6 @@ export class FilterByNamePipe implements PipeTransform {
     transform(regions: Region[], search: string): any {
         if (!search) return regions;
         search = search.toLocaleLowerCase();
-
         return regions.filter(region => region.name.toLocaleLowerCase().indexOf(search) !== -1);
     }
 }

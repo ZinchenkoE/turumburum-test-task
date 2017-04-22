@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Region, regions} from "../_shared/region.type";
+import Events = NodeJS.Events;
 
 @Component({
     selector: 'app-region-filter',
@@ -26,7 +27,7 @@ export class RegionFilterComponent implements OnInit {
         this.regions = regions;
     }
 
-    toggleDropdownBox(e) {
+    toggleDropdownBox(e: Event) {
         e.stopPropagation();
         this.showDropdownBox = !this.showDropdownBox;
     }
@@ -69,9 +70,8 @@ export class RegionFilterComponent implements OnInit {
         if (e.target.children[0]) this.selectViewPartText = e.target.children[0].innerText;
     }
 
-    deleteLabel(region) {
+    deleteLabel(region: Region) {
         region.selected = false;
     }
-
 
 }

@@ -61,7 +61,7 @@ app-region-list {
 			cursor: pointer;
 			-webkit-user-select: none;
 			position: relative;
-			&:hover {
+			&:hover, &.active {
 				background-color: #e7e7e7;
 			}
 			&.withSecondLevel:after {
