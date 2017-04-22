@@ -1,0 +1,89 @@
+app-region-list {
+	//display: none;
+	position: absolute;
+	left: 95%;
+	top: 0;
+}
+
+.label {
+	border-bottom: 1px solid #000;
+	margin-bottom: 20px;
+	line-height: 1.5;
+}
+
+.col {
+	width: 50%;
+}
+
+.wrapper {
+	display: flex;
+}
+
+.regionFilter {
+	position: relative;
+	color: #141e29;
+	.selectViewPart {
+		position: relative;
+		background-color: #fff;
+		-webkit-user-select: none;
+		line-height: 30px;
+		padding: 0 15px;
+		border: 1px solid #dbdbdb;
+		border-radius: 2px;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			right: 10px;
+			top: 0;
+			background: url(../../assets/icons/arrow.svg) center center / contain no-repeat;
+			width: 10px;
+			height: 30px;
+			transition: all .2s;
+		}
+	}
+	.dropdownBox {
+		position: absolute;
+		top: 100%;
+		display: none;
+		background-color: #fff;
+		width: 100%;
+		border: 1px solid #dbdbdb;
+		border-top: none;
+		box-sizing: border-box;
+		z-index: 20;
+		max-height: 500px;
+		li {
+			line-height: 30px;
+			padding: 0 15px;
+			cursor: pointer;
+			-webkit-user-select: none;
+			position: relative;
+			&:hover {
+				background-color: #e7e7e7;
+			}
+			&.withSecondLevel:after{
+				content: '';
+				display: block;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				background: url(../../assets/icons/arrow.svg) center center / contain no-repeat;
+				width: 10px;
+				height: 10px;
+				transform: rotate(-90deg);
+			}
+		}
+	}
+	&.active {
+		.selectViewPart {
+			border-bottom: none;
+			&:after {
+				transform: rotate(180deg)
+			}
+		}
+		.dropdownBox{
+			display: block;
+		}
+	}
+}

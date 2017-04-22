@@ -1,0 +1,25 @@
+<div class="wrapper">
+    <div class="col">
+        <p class="label">Местоположение</p>
+        <div class="regionFilter" [class.active]="showDropdownBox">
+            <div class="selectViewPart" (click)="toggleDropdown()">Все области</div>
+            <ul class="dropdownBox">
+                <li><span>Все области</span></li>
+                <li class="withSecondLevel">
+                    <span>Только области</span>
+                    <app-region-list></app-region-list>
+                </li>
+                <li><span>Исключить все области</span></li>
+                <li class="withSecondLevel">
+                    <span>Кроме областей</span>
+                    <!--<app-region-list></app-region-list>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+

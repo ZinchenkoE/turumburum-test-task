@@ -1,0 +1,10 @@
+<div class="wrapper">
+    <input type="text" class="searchField" placeholder="Поиск" (input)="search()">
+    <ul class="listBox">
+        <li *ngFor="let region of regions">
+            <input type="checkbox" id="region-{{region.id}}" >
+            <label for="region-{{region.id}}">{{region.name}}</label>
+        </li>
+    </ul>
+</div>
+
