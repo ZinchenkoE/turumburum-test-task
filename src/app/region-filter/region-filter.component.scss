@@ -1,22 +1,24 @@
-app-region-list {
-	//display: none;
-	position: absolute;
-	left: 95%;
-	top: 0;
-}
-
-.label {
-	border-bottom: 1px solid #000;
-	margin-bottom: 20px;
-	line-height: 1.5;
-}
-
-.col {
-	width: 50%;
-}
-
 .wrapper {
 	display: flex;
+}
+
+.leftCol {
+	width: 30%;
+	.label {
+		border-bottom: 1px solid #000;
+		margin-bottom: 20px;
+		line-height: 1.5;
+	}
+}
+
+.rightCol {
+	width: 70%;
+}
+
+app-region-list {
+	position: absolute;
+	left: 90%;
+	top: 0;
 }
 
 .regionFilter {
@@ -62,7 +64,7 @@ app-region-list {
 			&:hover {
 				background-color: #e7e7e7;
 			}
-			&.withSecondLevel:after{
+			&.withSecondLevel:after {
 				content: '';
 				display: block;
 				position: absolute;
@@ -82,8 +84,31 @@ app-region-list {
 				transform: rotate(180deg)
 			}
 		}
-		.dropdownBox{
+		.dropdownBox {
 			display: block;
+		}
+	}
+}
+
+.selectedRegions {
+	padding: 20px 0 0 20px;
+	li {
+		display: inline-block;
+		border: 1px solid #dbdbdb;
+		border-radius: 20px;
+		padding: 0 10px;
+		margin: 0 20px 10px 0;
+		span {
+			line-height: 30px;
+			margin-right: 10px;
+		}
+		.del {
+			width: 10px;
+			height: 30px;
+			display: inline-block;
+			background: url(../../assets/icons/cross.svg) center center / contain no-repeat;
+			vertical-align: middle;
+			cursor: pointer;
 		}
 	}
 }

@@ -1,10 +1,11 @@
-<div class="wrapper">
-    <input type="text" class="searchField" placeholder="Поиск" (input)="search()">
+<div class="wrapper" (click)="$event.stopPropagation()">
+    <input type="text" class="searchField" placeholder="Поиск" [(ngModel)]="searchStr">
     <ul class="listBox">
-        <li *ngFor="let region of regions">
-            <input type="checkbox" id="region-{{region.id}}" >
+        <li *ngFor="let region of regions | filterByName: searchStr | orderBySelected: (type === 'excludeList')">
+            <input type="checkbox" id="region-{{region.id}}" (change)="changeRegionCheckbox(region, $event)"
+                   [checked]="(type === 'includeList' && region.selected) || (type === 'excludeList' && !region.selected)"
+            >
             <label for="region-{{region.id}}">{{region.name}}</label>
         </li>
     </ul>
 </div>
-

@@ -4,4 +4,7 @@
     font-family: sans-serif;
     font-size: 14px;
 }
+body{
+    height: 100vh;
+}
 li{ list-style: none; }

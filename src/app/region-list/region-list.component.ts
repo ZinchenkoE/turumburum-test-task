@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Region, regions} from "../_shared/region.type";
 
 @Component({
@@ -7,12 +7,22 @@ import {Region, regions} from "../_shared/region.type";
     styleUrls: ['./region-list.component.scss']
 })
 export class RegionListComponent implements OnInit {
-    regions: Region[];
+    @Input() type: string;
+    regions: Region[] = [];
+    searchStr: string;
 
     constructor() {}
 
     ngOnInit() {
         this.regions = regions;
+    }
+
+    changeRegionCheckbox(region: Region, e) {
+        if (this.type === 'includeList') {
+            region.selected = e.target.checked;
+        } else {
+            region.selected = !e.target.checked;
+        }
     }
 
 }

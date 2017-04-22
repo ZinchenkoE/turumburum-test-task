@@ -1,25 +1,28 @@
 <div class="wrapper">
-    <div class="col">
+    <div class="leftCol">
         <p class="label">Местоположение</p>
         <div class="regionFilter" [class.active]="showDropdownBox">
-            <div class="selectViewPart" (click)="toggleDropdown()">Все области</div>
+            <div class="selectViewPart" (click)="toggleDropdownBox($event)">{{selectViewPartText}}</div>
             <ul class="dropdownBox">
-                <li><span>Все области</span></li>
-                <li class="withSecondLevel">
+                <li (click)="selectAllRegions($event)"><span>Все области</span></li>
+                <li class="withSecondLevel" (click)="includeRegions($event)">
                     <span>Только области</span>
-                    <app-region-list></app-region-list>
+                    <app-region-list *ngIf="showIncludeList" [type]="'includeList'"></app-region-list>
                 </li>
-                <li><span>Исключить все области</span></li>
-                <li class="withSecondLevel">
+                <li (click)="excludeAllRegions($event)"><span>Исключить все области</span></li>
+                <li class="withSecondLevel" (click)="excludeRegions($event)">
                     <span>Кроме областей</span>
-                    <!--<app-region-list></app-region-list>-->
+                    <app-region-list *ngIf="showExcludeList" [type]="'excludeList'"></app-region-list>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="col">
-
+    <div class="rightCol">
+        <ul class="selectedRegions">
+            <li *ngFor="let region of regions | filterSelected">
+                <span>{{region.name}}</span>
+                <div class="del" (click)="deleteLabel(region)"></div>
+            </li>
+        </ul>
     </div>
 </div>
-
-
