@@ -6,7 +6,7 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {RegionFilterComponent} from './region-filter/region-filter.component';
 import {RegionListComponent} from './region-list/region-list.component';
-import {FilterByNamePipe, filterSelectedPipe, OrderBySelectedPipe} from "./_shared/pipes";
+import {FilterByNamePipe, filterSelectedPipe} from "./_shared/pipes";
 
 @NgModule({
     declarations: [
@@ -15,7 +15,6 @@ import {FilterByNamePipe, filterSelectedPipe, OrderBySelectedPipe} from "./_shar
         RegionListComponent,
         FilterByNamePipe,
         filterSelectedPipe,
-        OrderBySelectedPipe
     ],
     imports: [
         BrowserModule,

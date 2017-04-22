@@ -1,7 +1,7 @@
 <div class="wrapper" (click)="$event.stopPropagation()">
     <input type="text" class="searchField" placeholder="Поиск" [(ngModel)]="searchStr">
     <ul class="listBox">
-        <li *ngFor="let region of regions | filterByName: searchStr | orderBySelected: (type === 'excludeList')">
+        <li *ngFor="let region of regions | filterByName: searchStr">
             <input type="checkbox" id="region-{{region.id}}" (change)="changeRegionCheckbox(region, $event)"
                    [checked]="(type === 'includeList' && region.selected) || (type === 'excludeList' && !region.selected)"
             >

@@ -21,19 +21,3 @@ export class FilterByNamePipe implements PipeTransform {
         return regions.filter(region => region.name.toLocaleLowerCase().indexOf(search) !== -1);
     }
 }
-
-@Pipe({
-    name: 'orderBySelected',
-    pure: false
-})
-export class OrderBySelectedPipe implements PipeTransform {
-    transform(regions: Region[], revers: boolean = false): any {
-        return regions.sort((a, b) => {
-            if(revers){
-                return a.selected ? 1 : -1;
-            }else{
-                return a.selected ? -1 : 1;
-            }
-        });
-    }
-}
